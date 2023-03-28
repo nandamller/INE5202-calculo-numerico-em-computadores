@@ -20,17 +20,22 @@ if fa * fb > 0:
 else:
     while abs(fxm) > erro:
         ciclos += 1
-
-        xm = (a + b)/2
+        xm = a - ((fa*(b-a)) / (fb -fa))
         fxm = f(xm)
 
         if fa*fxm > 0:
+            pb = fa / (fa + fxm)
+            fb *= pb
             a = xm
             fa = f(a)
-        else:
-            b = xm
 
-print("Operação de Bisseção finalizada!")
+        else:
+            pa = fb / (fb + fxm)
+            fa *= pa
+            b = xm
+            fb = f(b)
+
+print("Operação de Falsa Posição Modificada finalizada!")
 print("Ciclos: %d" %ciclos)
 print('xm (raiz): %.16f' %xm)
 print('f(xm): %.16f' %fxm)

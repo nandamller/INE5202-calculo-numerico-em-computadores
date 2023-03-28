@@ -8,6 +8,7 @@ def f(n):
 # intervalo dado
 a = 0; b = 2
 
+ciclos = 0
 xm = 0
 erro = 10**-10
 
@@ -18,6 +19,8 @@ if fa * fb > 0:
     print("O intevalo dado não garante uma raiz.")
 else:
     while abs(fxm) > erro:
+        ciclos += 1
+        
         xm = a - ((fa*(b-a)) / (fb -fa))
         fxm = f(xm)
 
@@ -28,5 +31,7 @@ else:
             b = xm
             fb = f(b)
 
+print("Operação de Falsa Posição finalizada!")
+print("Ciclos: %d" %ciclos)
 print('xm (raiz): %.16f' %xm)
 print('f(xm): %.16f' %fxm)
